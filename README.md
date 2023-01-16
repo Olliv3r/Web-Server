@@ -70,17 +70,17 @@ nano $PREFIX/etc/apache2/extra/httpd-ssl.conf
 ```
 
 Dentro deste arquivo digite `ctr+w` e pesquise por `ServerName` e substitua somente onde está escrito: `www.example.com` ou outro valor qualquer por `localhost` que ficará assim: `ServerName localhost:8443`
-![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-httpd-ssl.jpg)
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl.jpg)
 
 Digite `ctr+w` e pesquise por `server.crt` e substitua por `ssl/cert.crt` que ficará assim: `SSLCertificateFile "/data/data/com.termux/files/usr/etc/apache2/ssl/cert.crt"`
-![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-httpd-ssl-cert.crt.jpg)
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl-cert.crt.jpg)
 
 Digite `ctr+w` e pesquise por `server.key` e substitua por `ssl/cert.key` que ficará assim: `SSLCertificateKeyFile "/data/data/com.termux/files/usr/etc/apache2/ssl/cert.key"`
-![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-httpd-ssl-cert.key.jpg)
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl-cert.key.jpg)
 
 Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor ou outro qualquer por `/data/data/com.termux/files/usr/share/apache2/default-site/htdocs` que ficará assim:  
 `DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"`
-![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-httpd-ssl-DocumentRoot.jpg)
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl-DocumentRoot.jpg)
 
 Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `ctr+x+y` e der enter.
 
