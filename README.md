@@ -86,7 +86,7 @@ Logo após o `DocumentRoot` em `ServerName` substitua o seu valor `dummy-host.ex
 
 No final da tag `<VirtualHost>` antes do fechamento da tag `</VirtualHost>` adicione esta linha com o comando:  `Redirect / https://localhost:8443` 
 
-Repita essas alteraçôes também no bloco de baixo, adicionando um novo valor nas palavras `DocumentRoot`, `ServerName` e não esqueça de adicionar o redirecionamento em `Redirect / https://localhost:8443`
+Repita essas alteraçôes também no bloco de baixo, adicionando um novo valor nas palavras `DocumentRoot`, `ServerName` e não esqueça de adicionar o redirecionamento com `Redirect / https://localhost:8443`
 
 No final das alteraçôes feitas nos blocos `<VirtualHost> ` ficarão assim:  
 ```
