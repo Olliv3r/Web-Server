@@ -1,68 +1,109 @@
-# Web-Server
-Configura servidor web 
+# Configurar o apache com certificado ssl
 
-Instalação:
+### Etapa 1:
+#### Instalar dependencias:
 ```
-apt update && apt install apache2 openssl openssl-tool -y
+apt update -y && apt upgrade -y && apt install nano apache2 openssl openssl-tool -y
 ```
-Tente executar o apache:
+
+Execute o apache:
 ```
 apachectl
 ```
 
-Abra o arquivo ```httpd.conf```
+Abra o link:
+```
+termux-open-url http://localhost:8080
+```
+
+### Etapa 2:
+#### Alterar o arquivo httpd.conf
+
+Abra o arquivo `httpd.conf` faremos alteraçôes nele:
 ```
 nano $PREFIX/etc/apache2/httpd.conf
 ```
 
-Pressione a tecla ```ctrl+w``` e pesquise por: ```ServerRoot "/data/data/com.termux/files/usr"``` e adicione abaixo dele o comando:
-> ServerName "localhost"
+Dentro do arquivo digite a sequência de teclas `ctr+w` e pesquise essa linha e der enter:  
+`ServerRoot "/data/data/com.termux/files/usr"`
 
-Pressione a tecla ```ctrl+w``` e pesquise por:
-```ssl``` e descomente esta linha
-
-Pressione a tecla ```ctrl+w``` e pesquise por:
-```shmcb``` e descomente esta linha
-
-Pressione a tecla ```ctrl+w``` e pesquise por:
-```httpd-ssl``` e descomente esta linha
-
-Pressione a tecla ```ctrl+w``` e pesquise por:
-```httpd-vhosts``` e descomente esta linha
-
-Pressione a tecla ```ctrl+x+y``` e enter para salvar o arquivo
-
-Crie um diretório e defina as  permissôes:
+Abaixo deste comando pesquisado, adicione este comando:
 ```
-mkdir -p $PREFIX/etc/apache2/ssl
+ServerName "localhost"
+```
+
+Digite `ctr+w` e pesquise por `ssl` e der enter e descomente esta linha
+
+Digite `ctr+w` e pesquise por `shmcb` e der enter e descomente esta linha
+
+Digite `ctr+w` e pesquise por `httpd-ssl` e der enter e descomente esta linha
+
+Digite `ctr+w` e pesquise por `httpd-vhosts` e der enter e descomente esta linha
+
+Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `ctr+x+y` e der enter. 
+
+
+### Etapa 3:
+#### Configurar o certificado ssl
+
+Crie um diretório chamado `ssl` para armazenar as certificaçôes e der as parmissôes necessárias a ele:
+```
+mkdir $PREFIX/etc/apache2/ssl
 chmod 700 $PREFIX/etc/apache2/ssl
 ```
 
-Baixe o certificado ssl:
+Baixe o certificado ssl e no final da transferência vai dando ENTER quando perguntar:
 ```
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $PREFIX/etc/apache2/ssl/cert.key -out $PREFIX/etc/apache2/ssl/cert.crt
 ```
 
-Abra o arquivo ```httpd-ssl``` e procure por ```ServerName www.example.com:8443``` e altere de ```www.example.com``` para ```localhost:8443```
+#### Alterar o arquivo httpd-ssl.conf
+Abra o arquivo `httpd-ssl.conf` que faremos altereçôes nele:
 ```
 nano $PREFIX/etc/apache2/extra/httpd-ssl.conf
 ```
 
-Procure por ```server.crt``` e substitua por ```ssl/cert.crt```
+Dentro deste arquivo digite `ctr+w` e pesquise por `ServerName` e substitua somente onde está escrito: `www.example.com` ou outro valor qualquer por `localhost` que ficará assim: `ServerName localhost:8443`
 
-Procure por ```server.key``` e substitua por ```ssl/cert.key```
+Digite `ctr+w` e pesquise por `server.crt` e substitua por `ssl/cert.crt` que ficará assim: `SSLCertificateFile "/data/data/com.termux/files/usr/etc/apache2/ssl/cert.crt"`
 
-Salve o arquivo saia.
+Digite `ctr+w` e pesquise por `server.key` e substitua por `ssl/cert.key` que ficará assim: `SSLCertificateKeyFile "/data/data/com.termux/files/usr/etc/apache2/ssl/cert.key"`
 
-Adicione o diretório ```htdocs``` ao ```httpd-vhosts```
-``
+Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor por `/data/data/com.termux/files/usr/share/apache2/default-site/htdocs` ou outro valor qualquer que ficará assim:  
+`DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"`
 
-Pressione a tecla ```ctrl+w``` e pesquise por ```DocumentRoot``` e adicione este diretório ```/data/data/com.termux/files/usr/share/apache2/default-site/htdocs```
+Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `ctr+x+y` e der enter.
+
+Abra o arquivo `httpd-vhosts.conf` que faremos altereçôes nele:
+```
 nano $PREFIX/etc/apache2/extra/httpd-vhosts
 ```
 
-Em ```ServerName dummy-host2.example.com``` substitua por ```ServerName localhost```
+Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor por:  `/data/data/com.termux/files/usr/share/apache2/default-site/htdocs` que ficará assim: `DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"`
 
-Adicionar este comando ```Redirect / https://localhost:8443``` abaixo do ```CustomLog```
+Logo após o `DocumentRoot` em `ServerName` substitua o seu valor `dummy-host.example.com` por `localhost` que ficará assim: `ServerName localhost`
 
-Reinicie o apache e teste no navegador pra ver se ele é redirecionado para https
+No final da tag `<VirtualHost>` antes do fechamento da tag `</VirtualHost>` adicione esta linha com o comando:  `Redirect / https://localhost:8443` 
+
+Repita essas alteraçôes também no bloco de baixo, adicionando um novo valor nas palavras `DocumentRoot`, `ServerName` e não esqueça de adicionar o redirecionamento em `Redirect / https://localhost:8443`
+
+No final das alteraçôes feitas nos blocos `<VirtualHost> ` ficarão assim:  
+```
+<VirtualHost *:8080>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
+    ServerName localhost
+    ServerAlias www.dummy-host.example.com
+    ErrorLog "var/log/apache2/dummy-host.example.com-error_log
+    CustomLog "var/log/apache2/dummy-host.example.com-access_log" common
+    Redirect / https://localhost:8443
+</VirtualHost>
+```
+
+Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `ctr+x+y` e der enter.
+
+Reinicie o apache com o comando:
+```
+apache2 -k restart
+
+Atualize a página acessa anteriormente e verás que o apache te redirecionará para uma conexão https com certificado ssl.
