@@ -80,7 +80,7 @@ Abra o arquivo `httpd-vhosts.conf` que faremos altereçôes nele:
 nano $PREFIX/etc/apache2/extra/httpd-vhosts
 ```
 
-Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor por:  `/data/data/com.termux/files/usr/share/apache2/default-site/htdocs` que ficará assim: `DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"`
+Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor ou outro qualquer por:  `/data/data/com.termux/files/usr/share/apache2/default-site/htdocs` que ficará assim: `DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"`
 
 Logo após o `DocumentRoot` em `ServerName` substitua o seu valor `dummy-host.example.com` por `localhost` que ficará assim: `ServerName localhost`
 
