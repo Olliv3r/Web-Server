@@ -74,6 +74,7 @@ Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor ou outro qu
 
 Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `ctr+x+y` e der enter.
 
+#### Alterar o arquivo httpd-vhosts.conf
 Abra o arquivo `httpd-vhosts.conf` que faremos altereçôes nele:
 ```
 nano $PREFIX/etc/apache2/extra/httpd-vhosts
