@@ -87,14 +87,17 @@ Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `
 #### Alterar o arquivo httpd-vhosts.conf
 Abra o arquivo `httpd-vhosts.conf` que faremos altereçôes nele:
 ```
-nano $PREFIX/etc/apache2/extra/httpd-vhosts
+nano $PREFIX/etc/apache2/extra/httpd-vhosts.conf
 ```
 
 Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor ou outro qualquer por:  `/data/data/com.termux/files/usr/share/apache2/default-site/htdocs` que ficará assim: `DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"`
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-vhosts-DocumentRoot.jpg)
 
 Logo após o `DocumentRoot` em `ServerName` substitua o seu valor `dummy-host.example.com` ou outro qualquer por `localhost` que ficará assim: `ServerName localhost`
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-vhosts-ServerName.jpg)
 
 No final da tag `<VirtualHost>` antes do fechamento da tag `</VirtualHost>` adicione esta linha com o comando:  `Redirect / https://localhost:8443` 
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-vhosts-Redirect.jpg)
 
 Repita essas alteraçôes também no bloco de baixo, adicionando um novo valor nas palavras `DocumentRoot`, `ServerName` e não esqueça de adicionar o redirecionamento com `Redirect / https://localhost:8443`
 
@@ -110,6 +113,7 @@ No final das alteraçôes feitas nos blocos `<VirtualHost> ` ficarão assim:
     Redirect / https://localhost:8443
 </VirtualHost>
 ```
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-vhosts-VirtualHost.jpg)
 
 Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `ctr+x+y` e der enter.
 
