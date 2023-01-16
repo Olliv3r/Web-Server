@@ -1,4 +1,4 @@
-# Configurar o apache com certificado ssl
+# Configurar o apache
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/main.jpg)
 
 ### Etapa 1:
