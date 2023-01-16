@@ -35,12 +35,16 @@ ServerName "localhost"
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf.jpg)
 
 Digite `ctr+w` e pesquise por `ssl` e der enter e descomente esta linha
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-ssl.jpg)
 
 Digite `ctr+w` e pesquise por `shmcb` e der enter e descomente esta linha
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-shmcb.jpg)
 
 Digite `ctr+w` e pesquise por `httpd-ssl` e der enter e descomente esta linha
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-httpd-ssl.jpg)
 
 Digite `ctr+w` e pesquise por `httpd-vhosts` e der enter e descomente esta linha
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf-httpd-vhosts.jpg)
 
 Nesse arquivo ja terminamos, agora salve as alteraçôes no arquivo digitando: `ctr+x+y` e der enter. 
 
