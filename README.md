@@ -1,5 +1,5 @@
 # Configurar o apache com certificado ssl
-![Main](main.jpg)
+![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/main.jpg)
 
 ### Etapa 1:
 #### Instalar dependencias:
