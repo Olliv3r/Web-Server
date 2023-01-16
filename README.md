@@ -107,4 +107,4 @@ Reinicie o apache com o comando:
 ```
 apache2 -k restart
 ```
-Atualize a página acessa anteriormente e verás que o apache te redirecionará para uma conexão https com certificado ssl.
+Atualize a página acessada anteriormente e verás que o apache te redirecionará para uma conexão https com certificado ssl.
