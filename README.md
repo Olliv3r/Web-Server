@@ -32,6 +32,8 @@ Abaixo deste comando pesquisado, adicione este comando:
 ```
 ServerName "localhost"
 ```
+
+Ficando assim:
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd.conf.jpg)
 
 Digite `ctr+w` e pesquise por `ssl` e der enter e descomente esta linha
