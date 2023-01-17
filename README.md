@@ -131,5 +131,7 @@ apache2 -k restart
 ```
 Atualize a página acessada anteriormente e verás que o apache te redirecionará para uma conexão https com certificado ssl.
 
-## Proxima etapa (opcional)
-<a href="https://github.com/Olliv3r/Web-Server-Php">Configurar apache pra rodar scripts PHP</a>
+## Proximas etapas (opcional)
+<a href="https://github.com/Olliv3r/Web-Server-Php">1 - Configurar apache pra rodar scripts PHP</a>  
+<a href="https://github.com/Olliv3r/Web-Server-Mysql">2 - Configurar phpmyadmin pra rodar no apache</a>
+
