@@ -82,7 +82,7 @@ Digite `ctr+w` e pesquise por `server.key` e substitua por `ssl/cert.key` que fi
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl-cert.key.jpg)
 
 Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor ou outro qualquer por:
-> /data/data/com.termux/files/usr/share/apache2/default-site/htdocs`
+> /data/data/com.termux/files/usr/share/apache2/default-site/htdocs
 
 Ficando assim:
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl-DocumentRoot.jpg)
