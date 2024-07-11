@@ -82,7 +82,7 @@ Digite `ctr+w` e pesquise por `server.key` e substitua por `ssl/cert.key` que fi
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl-cert.key.jpg)
 
 Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor ou outro qualquer por:
-> /data/data/com.termux/files/usr/share/apache2/default-site/htdocs
+> /sdcard/htdocs
 
 Ficando assim:
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-ssl-DocumentRoot.jpg)
@@ -96,7 +96,7 @@ nano $PREFIX/etc/apache2/extra/httpd-vhosts.conf
 ```
 
 Digite `ctr+w` e pesquise por `DocumentRoot` e substitua o seu valor ou outro qualquer por:
-> /data/data/com.termux/files/usr/share/apache2/default-site/htdocs
+> /sdcard/htdocs
 
 Ficando assim:
 ![Main](https://github.com/Olliv3r/Web-Server/raw/main/media/httpd-vhosts-DocumentRoot.jpg)
@@ -113,7 +113,7 @@ No final das alteraçôes feitas nos blocos `<VirtualHost> ` ficarão assim:
 ```
 <VirtualHost *:8080>
     ServerAdmin webmaster@dummy-host.example.com
-    DocumentRoot "/data/data/com.termux/files/usr/share/apache2/default-site/htdocs"
+    DocumentRoot "/sdcard/htdocs"
     ServerName localhost
     ServerAlias www.dummy-host.example.com
     ErrorLog "var/log/apache2/dummy-host.example.com-error_log
